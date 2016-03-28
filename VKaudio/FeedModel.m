@@ -19,7 +19,7 @@
         
         //self.textPost = [responseObject objectForKey:@"text"];
         self.textPost = [[responseObject objectForKey:@"text"] stringByReplacingOccurrencesOfString:@"<br>" withString:@"\n"];
-        //self.owner = [responseObject objectForKey:@"source_id"];
+        self.owner = [responseObject objectForKey:@"source_id"];
         if ([[responseObject objectForKey:@"source_id"] integerValue]>0) {
             self.type = FeedModelTypePeople;
         }

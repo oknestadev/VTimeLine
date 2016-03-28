@@ -159,13 +159,25 @@ static NSInteger PostInRequest = 10;
     
     
     FeedModel* feed = [self.arrayWithFeed objectAtIndex:indexPath.row];
-   // UserModel* user = [self.peopleDict objectForKey:@"photo"];
+    switch (feed.type) {
+        case FeedModelTypePeople:
+        {
+            UserModel* user = [_peopleDict objectForKey:feed.owner];
+            
+            [_cell.photoFeed setImageWithURL:user.photo];
+        }
+            break;
+        case FeedModelTypeGroupe:
+        {
+            NSLog(@"Group not found!!!!");
+        }
+            break;
+        default:
+            break;
+    }
     
-    NSLog(@"Feed %@", feed.textPost); 
-    
-  
+  NSLog(@"Feed %@", feed.textPost);
     _cell.wallLabel.text = feed.textPost;
-   // [_cell.photoFeed setImageWithURL:user.photo];
     
 
     

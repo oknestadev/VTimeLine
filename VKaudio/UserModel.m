@@ -26,7 +26,7 @@
         
         
         
-        NSString* urlString = [responseObject objectForKey:@"photo_200_orig"];
+        NSString* urlString = [responseObject objectForKey:@"photo"];
         
         if (urlString) {
             self.photo = [NSURL URLWithString:urlString];

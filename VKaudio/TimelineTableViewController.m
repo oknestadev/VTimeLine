@@ -170,7 +170,7 @@ static NSInteger PostInRequest = 10;
 
     
     [_cell setIndexPath:indexPath];
-    
+    NSLog(@"setIndexPath %@",indexPath);
     
     
     if (indexPath.row == [self.arrayWithFeed count] - 1) {

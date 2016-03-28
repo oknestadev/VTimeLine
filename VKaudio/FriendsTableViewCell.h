@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageFriends;
 @property (weak, nonatomic) IBOutlet UILabel *nameFriendsLabel;
 
-@property(weak,nonatomic) NSIndexPath* indexPath;
+@property(strong,nonatomic) NSIndexPath* indexPath;
 
 
 @end

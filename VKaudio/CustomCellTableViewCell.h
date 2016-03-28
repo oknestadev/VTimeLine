@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wallLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoFeed;
 
-@property(weak,nonatomic) NSIndexPath* indexPath;
+@property(strong,nonatomic) NSIndexPath* indexPath;
 
 
 

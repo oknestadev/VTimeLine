@@ -23,14 +23,15 @@
 {
     self = [super init];
     if (self) {
+        NSLog(@"GROUP INFO: \n %@",responseObject);
         self.groupName = [responseObject objectForKey:@"name"];
        
-        self.groupID = [responseObject objectForKey:@"id"];
+        self.groupID = [responseObject objectForKey:@"gid"];
         
       
         
         
-        NSString* urlString = [responseObject objectForKey:@"photo_200"];
+        NSString* urlString = [responseObject objectForKey:@"photo"];
         
         
         

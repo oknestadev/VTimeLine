@@ -311,7 +311,7 @@
                                self.token.accessToken, @"access_token",nil];
     
     [self.requestOperation GET:@"groups.get?v=5.50" parameters:parametrs progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //NSLog(@"JSON GROUP %@", responseObject);
+        NSLog(@"JSON GROUP %@", responseObject);
         NSArray* arrayDict = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
         
         NSLog(@"JSON GROUP %@", arrayDict);

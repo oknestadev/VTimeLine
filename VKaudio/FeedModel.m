@@ -19,13 +19,15 @@
         
         //self.textPost = [responseObject objectForKey:@"text"];
         self.textPost = [[responseObject objectForKey:@"text"] stringByReplacingOccurrencesOfString:@"<br>" withString:@"\n"];
-        self.owner = [responseObject objectForKey:@"source_id"];
-        if ([[responseObject objectForKey:@"source_id"] integerValue]>0) {
+        NSInteger temp_id = [[responseObject objectForKey:@"source_id"] integerValue];
+        if (temp_id>0) {
             self.type = FeedModelTypePeople;
+            self.owner = [responseObject objectForKey:@"source_id"];
         }
         else
         {
             self.type = FeedModelTypeGroupe;
+            self.owner = [NSString stringWithFormat:@"%li",(temp_id*-1)];
         }
         
         NSString* urlString = [responseObject objectForKey:@"photo"];

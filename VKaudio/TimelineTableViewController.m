@@ -190,11 +190,11 @@ static NSInteger PostInRequest = 10;
             
             NSLog(@"photo %@",feed.owner );
             
-            if ([feed.owner hasPrefix:@"-"]) {
-                feed.owner = [@"" stringByAppendingString:feed.owner];
-            }
-            
-            GroupsModel* group = [_groupDict objectForKey:feed.owner];
+//            if ([feed.owner hasPrefix:@"-"]) {
+//                feed.owner = [@"" stringByAppendingString:feed.owner];
+//            }
+
+            GroupsModel* group = [_groupDict objectForKey:[NSNumber numberWithInteger:[feed.owner integerValue]]];
             NSLog(@"photo %@",feed.owner );
 
             

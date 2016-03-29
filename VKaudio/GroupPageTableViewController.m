@@ -8,21 +8,32 @@
 
 #import "GroupPageTableViewController.h"
 #import "UIImageView+AFNetworking.h"
-
+#import "API.h"
 @interface GroupPageTableViewController ()
+
+@property(strong,nonatomic) NSMutableArray* arrayWithWall;
 
 @end
 
 @implementation GroupPageTableViewController
 
+static NSInteger PostInRequest = 10;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self makePhotoAndName]; 
+    self.arrayWithWall = [NSMutableArray array];
+    
+    [self getwall];
+    
+    [self makePhotoAndName];
+    
+    
+    
     
     
    
-    
+    NSLog(@"id %@", self.group.groupID);
     
     
     
@@ -37,6 +48,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) getwall {
+    
+    NSInteger temp_id = [_group.groupID  integerValue];
+    
+    NSLog(@"%@", [NSString stringWithFormat:@"%li",(temp_id*-1)]);
+
+    [[API sharedManager]getWallPost: [NSString stringWithFormat:@"%li",(temp_id*-1)] offset:[self.arrayWithWall count] count:PostInRequest onSuccess:^(NSArray *post) {
+        
+        [self.arrayWithWall addObjectsFromArray:post];
+        
+        NSLog(@"%lu count ",(unsigned long)[self.arrayWithWall count] );
+        
+        
+        
+        [self.tableView reloadData];
+        
+    } onFailure:^(NSError *error) {
+        
+    }];
+    
 }
 
 #pragma mark - Table view data source
@@ -74,6 +107,10 @@
     
     self.groupsNameLabel.text = self.group.groupName;
     [self.groupsFonePhoto setImageWithURL:self.group.groupImageURL];
+    
+    
+    NSLog(@"%@", self.group.groupImageURL); 
+    
     [self.groupsPhoto setImageWithURL:self.group.groupImageURL];
     self.groupsPhoto .layer.cornerRadius = self.groupsPhoto.frame.size.height/2;
     self.groupsPhoto .clipsToBounds = YES;

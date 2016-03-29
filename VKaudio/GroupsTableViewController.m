@@ -95,6 +95,8 @@ static NSInteger PostInRequest = 10;
     cell.groupName.text = group.groupName;
     [cell.groupPhoto setImageWithURL:group.groupImageURL];
     
+    NSLog(@"%@ %@ %@", group.groupName, group.groupID, group.groupImageURL);
+    
     cell.groupPhoto.layer.cornerRadius = cell.groupPhoto.frame.size.height/2;
     cell.groupPhoto.clipsToBounds = YES;
     cell.groupPhoto.layer.borderColor = [UIColor blackColor].CGColor;

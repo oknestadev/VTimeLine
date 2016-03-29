@@ -189,19 +189,15 @@ static NSInteger PostInRequest = 10;
         {
             
             NSLog(@"photo %@",feed.owner );
-            
-//            if ([feed.owner hasPrefix:@"-"]) {
-//                feed.owner = [@"" stringByAppendingString:feed.owner];
-//            }
-
             GroupsModel* group = [_groupDict objectForKey:[NSNumber numberWithInteger:[feed.owner integerValue]]];
             NSLog(@"photo %@",feed.owner );
 
-            
-            
-            
-            
             [_cell.photoFeed setImageWithURL:group.groupImageURL];
+            _cell.photoFeed.layer.cornerRadius = _cell.photoFeed.frame.size.height/2;
+            _cell.photoFeed.clipsToBounds = YES;
+            _cell.photoFeed.layer.borderColor = [UIColor blackColor].CGColor;
+            [_cell.photoFeed.layer setBorderWidth:0.5f];
+            
             
         }
             break;

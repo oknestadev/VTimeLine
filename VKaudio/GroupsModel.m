@@ -23,17 +23,27 @@
 {
     self = [super init];
     if (self) {
-        NSLog(@"GROUP INFO: \n %@",responseObject);
+        //NSLog(@"GROUP INFO: \n %@",responseObject);
         self.groupName = [responseObject objectForKey:@"name"];
        
         self.groupID = [responseObject objectForKey:@"gid"];
+        self.groupID = [responseObject objectForKey:@"id"];
+        NSString* urlString2 = [responseObject objectForKey:@"photo_200"];
+        
+        NSLog(@"%@", urlString2);
+        
+        if (urlString2) {
+            self.groupImageURL = [NSURL URLWithString:urlString2];
+        }
+        
+
         
       
         
         
-        NSString* urlString = [responseObject objectForKey:@"photo"];
+        NSString* urlString = [responseObject objectForKey:@"photo_big"];
         
-        
+        NSLog(@"%@", urlString); 
         
         if (urlString) {
             self.groupImageURL = [NSURL URLWithString:urlString];

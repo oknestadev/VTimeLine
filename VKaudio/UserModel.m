@@ -23,13 +23,17 @@
         self.lastName = [responseObject objectForKey:@"last_name"];
         self.status = [responseObject objectForKey:@"status"];
         self.uID = [responseObject objectForKey:@"uid"];
-        
-        
-        
+
         NSString* urlString = [responseObject objectForKey:@"photo"];
         
         if (urlString) {
             self.photo = [NSURL URLWithString:urlString];
+        }
+        NSString* urlStringAvatar = [responseObject objectForKey:@"photo_200_orig"];
+        
+        if (urlStringAvatar) {
+            self.avatarPhoto = [NSURL URLWithString:urlStringAvatar];
+            
         }
         
     }

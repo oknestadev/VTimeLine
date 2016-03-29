@@ -18,6 +18,7 @@
 #import "FullTextTableViewController.h"
 #import "PageTableViewController.h"
 #import "NewsFeedModel.h"
+#import "GroupsModel.h"
 
 
 @interface TimelineTableViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -33,6 +34,11 @@
 @property(strong, nonatomic) NSMutableDictionary* groupDict;
 @property(strong, nonatomic) NSMutableArray* arrayWithFeed;
 @property(strong, nonatomic) NSMutableArray* arrayWithUser;
+@property(strong, nonatomic) NSURL* photo;
+
+
+
+
 
 - (IBAction)refreshControl:(id)sender;
 
@@ -63,9 +69,13 @@ static NSInteger PostInRequest = 10;
     self.arrayWithUser = [NSMutableArray array];
     self.peopleDict = [NSMutableDictionary dictionary];
     self.groupDict = [NSMutableDictionary dictionary];
+    
+    
+    
 
     [self getUser];
     [self getFeed];
+    
     
  
 
@@ -83,6 +93,8 @@ static NSInteger PostInRequest = 10;
 }
 
 -(void) getUser {
+    
+    
 
     [[API sharedManager] getuser:nil onSuccess:^(NSArray *userArray) {
         
@@ -92,8 +104,11 @@ static NSInteger PostInRequest = 10;
         [self makeProfilePhoto];
         
         self.myUser = user;
+        
+        [self.imageProfile setImageWithURL:user.avatarPhoto];
  
-        [self.imageProfile setImageWithURL:user.photo];
+       
+        NSLog(@"user %@", user.photo);
 
         [self.tableView reloadData];
         
@@ -105,6 +120,8 @@ static NSInteger PostInRequest = 10;
     }];
     
 }
+
+
 
 
 -(void) getFeed {
@@ -163,13 +180,29 @@ static NSInteger PostInRequest = 10;
         case FeedModelTypePeople:
         {
             UserModel* user = [_peopleDict objectForKey:feed.owner];
+
             
             [_cell.photoFeed setImageWithURL:user.photo];
         }
             break;
         case FeedModelTypeGroupe:
         {
-            NSLog(@"Group not found!!!!");
+            
+            NSLog(@"photo %@",feed.owner );
+            
+            if ([feed.owner hasPrefix:@"-"]) {
+                feed.owner = [@"" stringByAppendingString:feed.owner];
+            }
+            
+            GroupsModel* group = [_groupDict objectForKey:feed.owner];
+            NSLog(@"photo %@",feed.owner );
+
+            
+            
+            
+            
+            [_cell.photoFeed setImageWithURL:group.groupImageURL];
+            
         }
             break;
         default:
@@ -178,9 +211,6 @@ static NSInteger PostInRequest = 10;
     
   NSLog(@"Feed %@", feed.textPost);
     _cell.wallLabel.text = feed.textPost;
-    
-
-    
     [_cell setIndexPath:indexPath];
     NSLog(@"setIndexPath %@",indexPath);
     
@@ -192,6 +222,8 @@ static NSInteger PostInRequest = 10;
     return  _cell ;
     
 }
+
+
 
 
 

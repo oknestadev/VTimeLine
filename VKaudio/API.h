@@ -38,5 +38,10 @@
                   onSuccess:(void(^)(NSArray* friends)) success
                   onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
+- (void) getGroup:(NSString*)user offset:(NSInteger) offset
+            count:(NSInteger) count
+        onSuccess:(void(^)(NSArray* getGroup)) success
+        onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
 
 @end

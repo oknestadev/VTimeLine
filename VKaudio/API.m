@@ -14,6 +14,7 @@
 #import "AudioModel.h"
 #import "FeedModel.h"
 #import "FrendsModels.h"
+#import "GroupsModel.h"
 
 
 
@@ -115,12 +116,6 @@
     
     
 }
-
-    
-    
-
-
-
 
 
 -(void)  getWallPost:(NSString*)user offset:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NSArray* post)) success  onFailure:(void(^)(NSError*error)) failure {
@@ -298,6 +293,52 @@
         NSLog(@"Error: %@", error);
     }];
 
+}
+
+
+- (void) getGroup:(NSString*)user offset:(NSInteger) offset
+                      count:(NSInteger) count
+                  onSuccess:(void(^)(NSArray* getGroup)) success
+                  onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
+    
+     NSString* userID = user?user:self.accessToken.userId;
+    
+    NSDictionary* parametrs = [NSDictionary dictionaryWithObjectsAndKeys:
+                               userID, @"user_id",
+                               @"1", @"extended",
+                               @(offset), @"offset",
+                               @(count), @"count" ,
+                               self.token.accessToken, @"access_token",nil];
+    
+    [self.requestOperation GET:@"groups.get?v=5.50" parameters:parametrs progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //NSLog(@"JSON GROUP %@", responseObject);
+        NSArray* arrayDict = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
+        
+        NSLog(@"JSON GROUP %@", arrayDict);
+        
+        NSMutableArray* array = [NSMutableArray array];
+        
+        for (NSDictionary* dict in arrayDict) {
+            GroupsModel* groups = [[GroupsModel alloc]initWithServerResponse:dict];
+            [array addObject:groups];
+            
+            NSLog(@"%@ %@ %@", groups.groupName, groups.groupID, groups.groupImageURL);
+        }
+        
+       
+        if (success) {
+            success(array);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+    
+    
+    
+    
+    
 }
 
 @end

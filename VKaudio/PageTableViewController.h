@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *viewFone;
 
 @property(strong,nonatomic) NSString* uIDPage;
-@property(strong,nonatomic) NSString* uIDPage2;
+
 
 
 

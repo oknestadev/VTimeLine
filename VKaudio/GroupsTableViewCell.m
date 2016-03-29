@@ -6,12 +6,12 @@
 //  Copyright © 2016 EugeneYatsenko. All rights reserved.
 //
 
-#import "AudioTableViewCell.h"
+#import "GroupsTableViewCell.h"
 #import "UserModel.h"
 #import <AVFoundation/AVFoundation.h>
 
 
-@implementation AudioTableViewCell
+@implementation GroupsTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -24,7 +24,5 @@
 }
 
 
-- (IBAction)playMusic:(id)sender {
 
-}
 @end

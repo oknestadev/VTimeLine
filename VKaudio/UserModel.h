@@ -16,7 +16,8 @@
 @property(strong,nonatomic) NSString* status;
 @property(strong,nonatomic) NSString* textPost;
 @property(strong,nonatomic) NSString* uID;
-@property(strong, nonatomic) NSURL* photo; 
+@property(strong, nonatomic) NSURL* photo;
+@property(strong, nonatomic) NSURL* avatarPhoto;
 
 -(id) initWithServerResponse:(NSDictionary*) responseObject;
 

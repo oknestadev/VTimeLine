@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		390433081CA006440025688A /* AudioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390433071CA006440025688A /* AudioTableViewController.m */; };
+		390433081CA006440025688A /* GroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390433071CA006440025688A /* GroupsTableViewController.m */; };
 		3904330B1CA008C60025688A /* AudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904330A1CA008C60025688A /* AudioModel.m */; };
-		3904330E1CA00D320025688A /* AudioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904330D1CA00D320025688A /* AudioTableViewCell.m */; };
+		3904330E1CA00D320025688A /* GroupsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904330D1CA00D320025688A /* GroupsTableViewCell.m */; };
 		390433101CA023440025688A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3904330F1CA023440025688A /* AVFoundation.framework */; };
 		390B6BA71CA3CD5900E4EE89 /* PageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390B6BA61CA3CD5900E4EE89 /* PageTableViewController.m */; };
 		390B6BAA1CA3EDF000E4EE89 /* PageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390B6BA91CA3EDF000E4EE89 /* PageTableViewCell.m */; };
@@ -23,6 +23,8 @@
 		393C9A751C9AB3880090ED75 /* InitModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 393C9A741C9AB3880090ED75 /* InitModels.m */; };
 		393C9A7A1C9ADCD60090ED75 /* CustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 393C9A791C9ADCD60090ED75 /* CustomCellTableViewCell.m */; };
 		393C9A7D1C9AF0A20090ED75 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 393C9A7C1C9AF0A20090ED75 /* API.m */; };
+		394E03931CAA632F00B3CF56 /* GroupsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 394E03921CAA632F00B3CF56 /* GroupsModel.m */; };
+		394E03961CAA707800B3CF56 /* GroupPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394E03951CAA707800B3CF56 /* GroupPageTableViewController.m */; };
 		39506D131CA2946300FFFD43 /* FullTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39506D121CA2946300FFFD43 /* FullTextTableViewController.m */; };
 		39506D161CA2953F00FFFD43 /* FullTextCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39506D151CA2953F00FFFD43 /* FullTextCellTableViewCell.m */; };
 		3982B97E1C9C591600617B49 /* WallModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3982B97D1C9C591600617B49 /* WallModel.m */; };
@@ -61,12 +63,12 @@
 /* Begin PBXFileReference section */
 		161552AAB500919FE09A813F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		265548EB895D09D7765E400C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		390433061CA006440025688A /* AudioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTableViewController.h; sourceTree = "<group>"; };
-		390433071CA006440025688A /* AudioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioTableViewController.m; sourceTree = "<group>"; };
+		390433061CA006440025688A /* GroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsTableViewController.h; sourceTree = "<group>"; };
+		390433071CA006440025688A /* GroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsTableViewController.m; sourceTree = "<group>"; };
 		390433091CA008C60025688A /* AudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioModel.h; sourceTree = "<group>"; };
 		3904330A1CA008C60025688A /* AudioModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioModel.m; sourceTree = "<group>"; };
-		3904330C1CA00D320025688A /* AudioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTableViewCell.h; sourceTree = "<group>"; };
-		3904330D1CA00D320025688A /* AudioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioTableViewCell.m; sourceTree = "<group>"; };
+		3904330C1CA00D320025688A /* GroupsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsTableViewCell.h; sourceTree = "<group>"; };
+		3904330D1CA00D320025688A /* GroupsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsTableViewCell.m; sourceTree = "<group>"; };
 		3904330F1CA023440025688A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		390B6BA51CA3CD5900E4EE89 /* PageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTableViewController.h; sourceTree = "<group>"; };
 		390B6BA61CA3CD5900E4EE89 /* PageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTableViewController.m; sourceTree = "<group>"; };
@@ -92,6 +94,10 @@
 		393C9A791C9ADCD60090ED75 /* CustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellTableViewCell.m; sourceTree = "<group>"; };
 		393C9A7B1C9AF0A20090ED75 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		393C9A7C1C9AF0A20090ED75 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		394E03911CAA632F00B3CF56 /* GroupsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsModel.h; sourceTree = "<group>"; };
+		394E03921CAA632F00B3CF56 /* GroupsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsModel.m; sourceTree = "<group>"; };
+		394E03941CAA707800B3CF56 /* GroupPageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPageTableViewController.h; sourceTree = "<group>"; };
+		394E03951CAA707800B3CF56 /* GroupPageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPageTableViewController.m; sourceTree = "<group>"; };
 		39506D111CA2946300FFFD43 /* FullTextTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullTextTableViewController.h; sourceTree = "<group>"; };
 		39506D121CA2946300FFFD43 /* FullTextTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullTextTableViewController.m; sourceTree = "<group>"; };
 		39506D141CA2953F00FFFD43 /* FullTextCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullTextCellTableViewCell.h; sourceTree = "<group>"; };
@@ -168,6 +174,8 @@
 				390B6BAC1CA4083200E4EE89 /* FrendsModels.m */,
 				390B6BB41CA4444600E4EE89 /* NewsFeedModel.h */,
 				390B6BB51CA4444600E4EE89 /* NewsFeedModel.m */,
+				394E03911CAA632F00B3CF56 /* GroupsModel.h */,
+				394E03921CAA632F00B3CF56 /* GroupsModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -193,10 +201,12 @@
 		393C9A801C9BE8360090ED75 /* ProfileControler */ = {
 			isa = PBXGroup;
 			children = (
+				39BA9D441CA548B600DD4259 /* FriendsPageTableViewController.h */,
+				39BA9D451CA548B600DD4259 /* FriendsPageTableViewController.m */,
+				394E03941CAA707800B3CF56 /* GroupPageTableViewController.h */,
+				394E03951CAA707800B3CF56 /* GroupPageTableViewController.m */,
 				390B6BA51CA3CD5900E4EE89 /* PageTableViewController.h */,
 				390B6BA61CA3CD5900E4EE89 /* PageTableViewController.m */,
-				390B6BB11CA4098A00E4EE89 /* FriendsTableViewController.h */,
-				390B6BB21CA4098A00E4EE89 /* FriendsTableViewController.m */,
 				393C9A6C1C9AAA510090ED75 /* TimelineTableViewController.h */,
 				393C9A6D1C9AAA510090ED75 /* TimelineTableViewController.m */,
 			);
@@ -208,8 +218,8 @@
 			children = (
 				393C9A781C9ADCD60090ED75 /* CustomCellTableViewCell.h */,
 				393C9A791C9ADCD60090ED75 /* CustomCellTableViewCell.m */,
-				3904330C1CA00D320025688A /* AudioTableViewCell.h */,
-				3904330D1CA00D320025688A /* AudioTableViewCell.m */,
+				3904330C1CA00D320025688A /* GroupsTableViewCell.h */,
+				3904330D1CA00D320025688A /* GroupsTableViewCell.m */,
 				39506D141CA2953F00FFFD43 /* FullTextCellTableViewCell.h */,
 				39506D151CA2953F00FFFD43 /* FullTextCellTableViewCell.m */,
 				390B6BA81CA3EDF000E4EE89 /* PageTableViewCell.h */,
@@ -222,13 +232,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		39506D101CA2941F00FFFD43 /* AudioTable */ = {
+		39506D101CA2941F00FFFD43 /* FrendsAndGroupsController */ = {
 			isa = PBXGroup;
 			children = (
-				390433061CA006440025688A /* AudioTableViewController.h */,
-				390433071CA006440025688A /* AudioTableViewController.m */,
+				390433061CA006440025688A /* GroupsTableViewController.h */,
+				390433071CA006440025688A /* GroupsTableViewController.m */,
+				390B6BB11CA4098A00E4EE89 /* FriendsTableViewController.h */,
+				390B6BB21CA4098A00E4EE89 /* FriendsTableViewController.m */,
 			);
-			name = AudioTable;
+			name = FrendsAndGroupsController;
 			sourceTree = "<group>";
 		};
 		39506D171CA2D15E00FFFD43 /* FullText */ = {
@@ -267,7 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				39506D171CA2D15E00FFFD43 /* FullText */,
-				39506D101CA2941F00FFFD43 /* AudioTable */,
+				39506D101CA2941F00FFFD43 /* FrendsAndGroupsController */,
 				393C9A811C9BE8470090ED75 /* Cells */,
 				393C9A801C9BE8360090ED75 /* ProfileControler */,
 				393C9A7F1C9BE8230090ED75 /* LoginController */,
@@ -282,8 +294,6 @@
 				39B1D1271C9A977A00ACC7D0 /* Info.plist */,
 				39B1D11F1C9A977A00ACC7D0 /* VKaudio.xcdatamodeld */,
 				39B1D1131C9A977A00ACC7D0 /* Supporting Files */,
-				39BA9D441CA548B600DD4259 /* FriendsPageTableViewController.h */,
-				39BA9D451CA548B600DD4259 /* FriendsPageTableViewController.m */,
 			);
 			path = VKaudio;
 			sourceTree = "<group>";
@@ -401,7 +411,7 @@
 				TargetAttributes = {
 					39B1D10F1C9A977A00ACC7D0 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = RHL23Y9373;
+						DevelopmentTeam = L62WNGBN8J;
 					};
 					39B1D12B1C9A977A00ACC7D0 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -515,15 +525,17 @@
 				390B6BB01CA4090700E4EE89 /* FriendsTableViewCell.m in Sources */,
 				39B1D1151C9A977A00ACC7D0 /* main.m in Sources */,
 				393C9A6E1C9AAA510090ED75 /* TimelineTableViewController.m in Sources */,
-				3904330E1CA00D320025688A /* AudioTableViewCell.m in Sources */,
+				3904330E1CA00D320025688A /* GroupsTableViewCell.m in Sources */,
 				3982B97E1C9C591600617B49 /* WallModel.m in Sources */,
 				390B6BA71CA3CD5900E4EE89 /* PageTableViewController.m in Sources */,
 				39B1D1211C9A977A00ACC7D0 /* VKaudio.xcdatamodeld in Sources */,
+				394E03961CAA707800B3CF56 /* GroupPageTableViewController.m in Sources */,
 				390B6BAD1CA4083200E4EE89 /* FrendsModels.m in Sources */,
 				39B1D14B1C9A9A5500ACC7D0 /* LoginViewController.m in Sources */,
 				39BA9D4F1CA579A200DD4259 /* FriendPagesTableViewCell.m in Sources */,
 				39506D131CA2946300FFFD43 /* FullTextTableViewController.m in Sources */,
-				390433081CA006440025688A /* AudioTableViewController.m in Sources */,
+				394E03931CAA632F00B3CF56 /* GroupsModel.m in Sources */,
+				390433081CA006440025688A /* GroupsTableViewController.m in Sources */,
 				393C9A751C9AB3880090ED75 /* InitModels.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

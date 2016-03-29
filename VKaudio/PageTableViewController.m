@@ -16,6 +16,7 @@
 #import "API.h"
 #import "FriendsTableViewController.h"
 #import "FrendsModels.h"
+#import "GroupsTableViewController.h"
 
 @interface PageTableViewController ()
 
@@ -89,8 +90,8 @@ static NSInteger PostInRequest = 10;
         
         self.fullNamePage.text = [NSString stringWithFormat:@"%@ %@ ", self.user.name , self.user.lastName];
         self.statusPage.text = self.user.status;
-        [self.photoAvatar setImageWithURL:self.user.photo];
-        [self.foneImageFriend setImageWithURL:self.user.photo];
+        [self.photoAvatar setImageWithURL:self.user.avatarPhoto];
+        [self.foneImageFriend setImageWithURL:self.user.avatarPhoto];
         self.photoAvatar .layer.cornerRadius = self.photoAvatar.frame.size.height/2;
         self.photoAvatar .clipsToBounds = YES;
         self.photoAvatar.layer.borderColor = [UIColor blackColor].CGColor;
@@ -147,7 +148,7 @@ static NSInteger PostInRequest = 10;
     WallModel* wall = [self.arrayWithWall objectAtIndex:indexPath.row];
 
     self.cell.labelCell.text = wall.testWall;
-    [self.cell.imagePhotoCell setImageWithURL:self.user.photo];
+    [self.cell.imagePhotoCell setImageWithURL:self.user.avatarPhoto];
     self.cell.imagePhotoCell.layer.cornerRadius = _cell.imagePhotoCell.frame.size.height/2;
     self.cell.imagePhotoCell.clipsToBounds = YES;
     self.cell.imagePhotoCell.layer.borderColor = [UIColor blackColor].CGColor;
@@ -162,12 +163,26 @@ static NSInteger PostInRequest = 10;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 
 {
+    
     if ([segue.identifier isEqualToString:@"friends"]) {
+        
+        
+        NSLog(@"USER ID %@",self.uIDPage );
+        
+        ((FriendsTableViewController*)[segue destinationViewController]).uIDFriends = self.uIDPage ;
+        
+        
+        
+    }
+
+    
+    
+    if ([segue.identifier isEqualToString:@"segueGroups"]) {
         
        
         NSLog(@"USER ID %@",self.uIDPage );
         
-        ((FriendsTableViewController*)[segue destinationViewController]).uIDFriends = self.uIDPage ;
+        ((GroupsTableViewController*)[segue destinationViewController]).groupsId = self.uIDPage ;
         
         
         

@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AudioTableViewController : UITableViewController
-- (IBAction)profileButton:(id)sender;
+@interface GroupsTableViewController : UITableViewController
 
-- (IBAction)playMusic:(id)sender;
+@property(strong,nonatomic) NSString* groupsId;
 
 
 @end

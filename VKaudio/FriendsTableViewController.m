@@ -6,6 +6,7 @@
 //  Copyright © 2016 EugeneYatsenko. All rights reserved.
 //
 
+#import "API.h"
 #import "FriendsTableViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "TimelineTableViewController.h"
@@ -15,10 +16,10 @@
 #import "FeedModel.h"
 #import "FrendsModels.h"
 #import "PageTableViewCell.h"
-#import "API.h"
 #import "FriendsTableViewCell.h"
 #import "PageTableViewController.h"
 #import "FriendsPageTableViewController.h"
+
 @interface FriendsTableViewController ()
 
 @property(strong,nonatomic) NSMutableArray* arrayWithFrend;
@@ -105,7 +106,7 @@ static NSInteger friendsInRequest = 10;
 
     
     NSLog(@"%@ %@ %@",friend.name, friend.lastName, friend.uID);
-    //self.uIDFriends = friend.uID;
+    
     
     _cell.nameFriendsLabel.text = [NSString stringWithFormat:@"%@ %@", friend.name, friend.lastName];
     [_cell.photoImageFriends setImageWithURL:friend.imageURL];
@@ -141,7 +142,6 @@ static NSInteger friendsInRequest = 10;
         NSLog(@"%@ %@ %@", friend.name, friend.lastName, friend.uID);
 
         ((FriendsPageTableViewController*)[segue destinationViewController]).uIDPage = friend.uID;
-       
 
    }
 

@@ -9,6 +9,7 @@
 #import "NewsFeedModel.h"
 #import "FeedModel.h"
 #import "UserModel.h"
+#import "GroupsModel.h"
 
 @implementation NewsFeedModel
 
@@ -27,13 +28,12 @@
     self.profiles = peopleDict;
     
     NSMutableDictionary* groupDict = [NSMutableDictionary dictionary];
-//    for (NSDictionary* dict in [responseObject objectForKey:@"groups"]) {
-//        
-//        //NSLog(@" dict ------ %@", dict);
-//        FeedModel* feed = [[FeedModel alloc] initWithServerResponse:dict];
-//        NSLog(@"PHOTO %@", feed.photo);
-//        [arrayFeed addObject:feed];
-//    }
+    for (NSDictionary* dict in [responseObject objectForKey:@"groups"]) {
+        GroupsModel* groupMod = [[GroupsModel alloc]initWithServerResponse:dict];
+        
+        [groupDict setObject:groupMod forKey:[dict objectForKey:@"gid"]]; 
+    }
+    
     self.groups = groupDict;
     
     NSMutableArray* feedArray = [NSMutableArray array];

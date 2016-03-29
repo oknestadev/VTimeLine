@@ -19,7 +19,9 @@
 #import "GroupsTableViewController.h"
 
 @interface PageTableViewController ()
-
+{
+    BOOL reloadFlag;
+}
 @property(strong,nonatomic) PageTableViewCell* cell;
 @property(strong,nonatomic) UserModel* user;
 @property(strong,nonatomic) NSMutableArray* arrayWithWall;
@@ -67,6 +69,7 @@ static NSInteger PostInRequest = 10;
     
     [[API sharedManager]getWallPost:self.uIDPage offset:[self.arrayWithWall count] count:PostInRequest onSuccess:^(NSArray *post) {
 
+        reloadFlag = post.count<PostInRequest;
         [self.arrayWithWall addObjectsFromArray:post];
         
         
@@ -138,7 +141,7 @@ static NSInteger PostInRequest = 10;
    
 
     
-    if (indexPath.row == [self.arrayWithWall count] - 1) {
+    if (indexPath.row == [self.arrayWithWall count] - 1 && !reloadFlag) {
         [self getwall];
         
     }

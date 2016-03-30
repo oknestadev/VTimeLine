@@ -24,6 +24,9 @@
 
 
 @interface FriendsPageTableViewController ()
+{
+    BOOL reloadFlag;
+}
 @property(strong,nonatomic) NSMutableArray* arrayWithUser;
 @property(strong,nonatomic) NSMutableArray* arrayWithUserWall;
 @property(strong,nonatomic) FriendPagesTableViewCell* cell;
@@ -32,7 +35,7 @@
 
 @implementation FriendsPageTableViewController
 
-static NSInteger PostInRequest = 10;
+static NSInteger PostInRequest = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,8 +62,12 @@ static NSInteger PostInRequest = 10;
 
 -(void) getUser {
     
+    
+    
     [[API sharedManager] getuser:self.uIDPage onSuccess:^(NSArray *userArray) {
         [self.arrayWithUser addObjectsFromArray:userArray];
+        
+        reloadFlag = userArray.count<PostInRequest;
         
         UserModel* user = [self.arrayWithUser objectAtIndex:0];
         
@@ -90,6 +97,8 @@ static NSInteger PostInRequest = 10;
     NSLog(@"%@", self.uIDPage); 
     
     [[API sharedManager]getWallPost: self.uIDPage  offset:[self.arrayWithUserWall count] count:PostInRequest onSuccess:^(NSArray *post) {
+        
+        reloadFlag = post.count<PostInRequest;
         
         
         [self.arrayWithUserWall addObjectsFromArray:post];
@@ -158,7 +167,7 @@ static NSInteger PostInRequest = 10;
     }
     
     
-    if (indexPath.row == [self.arrayWithUserWall count] - 1) {
+    if (indexPath.row == [self.arrayWithUserWall count] - 1 && !reloadFlag) {
         
         [self getwall];
         

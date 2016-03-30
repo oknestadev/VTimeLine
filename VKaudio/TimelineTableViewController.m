@@ -19,6 +19,7 @@
 #import "PageTableViewController.h"
 #import "NewsFeedModel.h"
 #import "GroupsModel.h"
+#import "AttachmentsModel.h"
 
 
 @interface TimelineTableViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -34,6 +35,7 @@
 @property(strong, nonatomic) NSMutableDictionary* groupDict;
 @property(strong, nonatomic) NSMutableArray* arrayWithFeed;
 @property(strong, nonatomic) NSMutableArray* arrayWithUser;
+@property(strong, nonatomic) NSMutableDictionary* arrayWithAttachments;
 @property(strong, nonatomic) NSURL* photo;
 
 
@@ -58,7 +60,7 @@
 
 @implementation TimelineTableViewController
 
-static NSInteger PostInRequest = 10;
+static NSInteger PostInRequest = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,6 +71,7 @@ static NSInteger PostInRequest = 10;
     self.arrayWithUser = [NSMutableArray array];
     self.peopleDict = [NSMutableDictionary dictionary];
     self.groupDict = [NSMutableDictionary dictionary];
+    self.arrayWithAttachments = [NSMutableDictionary dictionary];
     
     
     
@@ -131,8 +134,9 @@ static NSInteger PostInRequest = 10;
         [self.arrayWithFeed addObjectsFromArray:feed.items];
         [_peopleDict addEntriesFromDictionary:feed.profiles];
         [_groupDict addEntriesFromDictionary:feed.groups];
+        [self.arrayWithAttachments addEntriesFromDictionary:feed.attachments];
         
-        NSLog(@"arrayitchObject %@", self.arrayWithFeed); 
+        NSLog(@"arrayitchObject %@",self.arrayWithAttachments);
         
         [self.tableView reloadData];
    
@@ -180,9 +184,9 @@ static NSInteger PostInRequest = 10;
         case FeedModelTypePeople:
         {
             UserModel* user = [_peopleDict objectForKey:feed.owner];
-
-            
             [_cell.photoFeed setImageWithURL:user.photo];
+            NSLog(@"%@ %@", user.name, user.lastName); 
+            _cell.fullNameTLabel.text = [NSString stringWithFormat:@"%@ %@", user.name, user.lastName];
         }
             break;
         case FeedModelTypeGroupe:
@@ -190,13 +194,16 @@ static NSInteger PostInRequest = 10;
             
             NSLog(@"photo %@",feed.owner );
             GroupsModel* group = [_groupDict objectForKey:[NSNumber numberWithInteger:[feed.owner integerValue]]];
+           
             NSLog(@"photo %@",feed.owner );
 
             [_cell.photoFeed setImageWithURL:group.groupImageURL];
+            _cell.fullNameTLabel.text = group.groupName; 
             _cell.photoFeed.layer.cornerRadius = _cell.photoFeed.frame.size.height/2;
             _cell.photoFeed.clipsToBounds = YES;
             _cell.photoFeed.layer.borderColor = [UIColor blackColor].CGColor;
             [_cell.photoFeed.layer setBorderWidth:0.5f];
+           
             
             
         }
@@ -246,12 +253,16 @@ static NSInteger PostInRequest = 10;
         ((PageTableViewController*)[segue destinationViewController]).photoPage = self.myUser.photo;
         ((PageTableViewController*)[segue destinationViewController]).uIDPage = self.myUser.uID;
 
-
     }
-    
-    
-    
+   
 }
+
+
+
+
+
+
+
 
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

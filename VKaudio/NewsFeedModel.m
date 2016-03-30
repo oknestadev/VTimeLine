@@ -10,6 +10,7 @@
 #import "FeedModel.h"
 #import "UserModel.h"
 #import "GroupsModel.h"
+#import "AttachmentsModel.h"
 
 @implementation NewsFeedModel
 
@@ -36,9 +37,10 @@
     
     self.groups = groupDict;
     
-    NSMutableArray* feedArray = [NSMutableArray array];
-    for (NSDictionary* dict in [responseObject objectForKey:@"items"]) {
 
+    NSMutableArray* feedArray = [NSMutableArray array];
+    for (NSDictionary* dict in [responseObject objectForKey:@"items"]){
+        
         FeedModel* feed = [[FeedModel alloc] initWithServerResponse:dict];
         
         NSLog(@"%@ ", dict);
@@ -47,6 +49,35 @@
         [feedArray addObject:feed];
     }
     self.items = feedArray;
+    
+    
+    NSMutableDictionary* attachmentsDict = [NSMutableDictionary dictionary];
+    for (NSDictionary* dict in [responseObject objectForKey:@"items"]) {
+        
+        for (NSDictionary* dictAttach in [dict objectForKey:@"attachments"]) {
+            
+            
+            
+            AttachmentsModel* attachments = [[AttachmentsModel alloc] initWithServerResponse:dictAttach];
+            
+            NSLog(@"%@", dictAttach); 
+            
+            //[attachmentsDict setObject:attachments forKey:[dictAttach objectForKey:@"gid"]];
+        }
+        
+        
+        NSLog(@"%@",attachmentsDict ); 
+        
+ 
+    }
+
+    self.attachments = attachmentsDict;
+    
+    
+    
+    
+    
+    
     return self;
 }
 

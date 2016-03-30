@@ -12,6 +12,7 @@
 
 @property(strong,nonatomic) NSString* groupName;
 @property(strong,nonatomic) NSString* groupID;
+@property(strong,nonatomic) NSString* gID;
 @property (strong, nonatomic) NSURL* groupImageURL;
 
 

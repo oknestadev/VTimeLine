@@ -21,6 +21,9 @@
 
 
 @interface GroupsTableViewController () <UITableViewDataSource, UITableViewDelegate>
+{
+    BOOL reloadFlag;
+}
 
 @property(strong,nonatomic) NSMutableArray* arrayWithGroup;
 
@@ -53,6 +56,9 @@ static NSInteger PostInRequest = 10;
     
     
     [[API sharedManager] getGroup:self.groupsId offset:[self.arrayWithGroup count] count:PostInRequest onSuccess:^(NSArray *getGroup) {
+        
+        reloadFlag = getGroup.count<PostInRequest;
+        
         [self.arrayWithGroup addObjectsFromArray:getGroup];
         
         [self.tableView reloadData];
@@ -110,7 +116,7 @@ static NSInteger PostInRequest = 10;
     
     
     
-    if (indexPath.row == [self.arrayWithGroup count]- 1) {
+    if (indexPath.row == [self.arrayWithGroup count]- 1 && !reloadFlag) {
         
         [self getGroup]; 
         

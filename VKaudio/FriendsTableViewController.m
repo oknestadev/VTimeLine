@@ -21,6 +21,9 @@
 #import "FriendsPageTableViewController.h"
 
 @interface FriendsTableViewController ()
+{
+    BOOL reloadFlag;
+}
 
 @property(strong,nonatomic) NSMutableArray* arrayWithFrend;
 @property(strong,nonatomic) FriendsTableViewCell* cell;
@@ -31,7 +34,7 @@
 
 @implementation FriendsTableViewController
 
-static NSInteger friendsInRequest = 10;
+static NSInteger friendsInRequest = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +57,8 @@ static NSInteger friendsInRequest = 10;
   
     
     [[API sharedManager] getFriendsFromUSer:self.uIDFriends offset:[self.arrayWithFrend count] count:friendsInRequest onSuccess:^(NSArray *friends) {
+        
+        reloadFlag = friends.count<friendsInRequest;
         
         NSLog(@"aaaaaa %@", self.uIDFriends);
         
@@ -118,7 +123,7 @@ static NSInteger friendsInRequest = 10;
     
    
     
-    if (indexPath.row == [_arrayWithFrend count] - 1)
+    if (indexPath.row == [_arrayWithFrend count] - 1 && !reloadFlag)
     {
         [self getFriends];
     }

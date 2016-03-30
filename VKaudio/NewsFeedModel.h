@@ -20,6 +20,7 @@
  */
 
 @property(strong, nonatomic) NSArray* items;
+@property(strong,nonatomic) NSDictionary* attachments;
 @property(strong, nonatomic) NSDictionary* profiles;
 @property(strong, nonatomic) NSDictionary* groups;
 

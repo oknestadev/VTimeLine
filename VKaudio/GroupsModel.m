@@ -26,7 +26,7 @@
         //NSLog(@"GROUP INFO: \n %@",responseObject);
         self.groupName = [responseObject objectForKey:@"name"];
        
-        self.groupID = [responseObject objectForKey:@"gid"];
+        self.gID = [responseObject objectForKey:@"gid"];
         self.groupID = [responseObject objectForKey:@"id"];
         NSString* urlString2 = [responseObject objectForKey:@"photo_200"];
         

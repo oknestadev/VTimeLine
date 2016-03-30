@@ -17,6 +17,11 @@
 
 @property(strong,nonatomic) NSIndexPath* indexPath;
 
+@property (weak, nonatomic) IBOutlet UILabel *fullNameTLabel;
+
+- (IBAction)buttonPageTL:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIImageView *photoInCellTL;
 
 
 

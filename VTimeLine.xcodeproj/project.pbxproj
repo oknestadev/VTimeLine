@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390075FE1CABCF8300BF9725 /* AttachmentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 390075FD1CABCF8300BF9725 /* AttachmentsModel.m */; };
 		390433081CA006440025688A /* GroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390433071CA006440025688A /* GroupsTableViewController.m */; };
 		3904330B1CA008C60025688A /* AudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904330A1CA008C60025688A /* AudioModel.m */; };
 		3904330E1CA00D320025688A /* GroupsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904330D1CA00D320025688A /* GroupsTableViewCell.m */; };
@@ -25,6 +26,7 @@
 		393C9A7D1C9AF0A20090ED75 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 393C9A7C1C9AF0A20090ED75 /* API.m */; };
 		394E03931CAA632F00B3CF56 /* GroupsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 394E03921CAA632F00B3CF56 /* GroupsModel.m */; };
 		394E03961CAA707800B3CF56 /* GroupPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394E03951CAA707800B3CF56 /* GroupPageTableViewController.m */; };
+		394E03991CAAAFFE00B3CF56 /* GroupPageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 394E03981CAAAFFE00B3CF56 /* GroupPageTableViewCell.m */; };
 		39506D131CA2946300FFFD43 /* FullTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39506D121CA2946300FFFD43 /* FullTextTableViewController.m */; };
 		39506D161CA2953F00FFFD43 /* FullTextCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39506D151CA2953F00FFFD43 /* FullTextCellTableViewCell.m */; };
 		3982B97E1C9C591600617B49 /* WallModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3982B97D1C9C591600617B49 /* WallModel.m */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		161552AAB500919FE09A813F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		265548EB895D09D7765E400C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		390075FC1CABCF8300BF9725 /* AttachmentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentsModel.h; sourceTree = "<group>"; };
+		390075FD1CABCF8300BF9725 /* AttachmentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentsModel.m; sourceTree = "<group>"; };
 		390433061CA006440025688A /* GroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsTableViewController.h; sourceTree = "<group>"; };
 		390433071CA006440025688A /* GroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsTableViewController.m; sourceTree = "<group>"; };
 		390433091CA008C60025688A /* AudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioModel.h; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 		394E03921CAA632F00B3CF56 /* GroupsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsModel.m; sourceTree = "<group>"; };
 		394E03941CAA707800B3CF56 /* GroupPageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPageTableViewController.h; sourceTree = "<group>"; };
 		394E03951CAA707800B3CF56 /* GroupPageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPageTableViewController.m; sourceTree = "<group>"; };
+		394E03971CAAAFFE00B3CF56 /* GroupPageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPageTableViewCell.h; sourceTree = "<group>"; };
+		394E03981CAAAFFE00B3CF56 /* GroupPageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPageTableViewCell.m; sourceTree = "<group>"; };
 		39506D111CA2946300FFFD43 /* FullTextTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullTextTableViewController.h; sourceTree = "<group>"; };
 		39506D121CA2946300FFFD43 /* FullTextTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullTextTableViewController.m; sourceTree = "<group>"; };
 		39506D141CA2953F00FFFD43 /* FullTextCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullTextCellTableViewCell.h; sourceTree = "<group>"; };
@@ -176,6 +182,8 @@
 				390B6BB51CA4444600E4EE89 /* NewsFeedModel.m */,
 				394E03911CAA632F00B3CF56 /* GroupsModel.h */,
 				394E03921CAA632F00B3CF56 /* GroupsModel.m */,
+				390075FC1CABCF8300BF9725 /* AttachmentsModel.h */,
+				390075FD1CABCF8300BF9725 /* AttachmentsModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -228,6 +236,8 @@
 				390B6BAF1CA4090700E4EE89 /* FriendsTableViewCell.m */,
 				39BA9D4D1CA579A200DD4259 /* FriendPagesTableViewCell.h */,
 				39BA9D4E1CA579A200DD4259 /* FriendPagesTableViewCell.m */,
+				394E03971CAAAFFE00B3CF56 /* GroupPageTableViewCell.h */,
+				394E03981CAAAFFE00B3CF56 /* GroupPageTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -510,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394E03991CAAAFFE00B3CF56 /* GroupPageTableViewCell.m in Sources */,
 				3904330B1CA008C60025688A /* AudioModel.m in Sources */,
 				390B6BAA1CA3EDF000E4EE89 /* PageTableViewCell.m in Sources */,
 				390B6BB61CA4444600E4EE89 /* NewsFeedModel.m in Sources */,
@@ -530,6 +541,7 @@
 				390B6BA71CA3CD5900E4EE89 /* PageTableViewController.m in Sources */,
 				39B1D1211C9A977A00ACC7D0 /* VKaudio.xcdatamodeld in Sources */,
 				394E03961CAA707800B3CF56 /* GroupPageTableViewController.m in Sources */,
+				390075FE1CABCF8300BF9725 /* AttachmentsModel.m in Sources */,
 				390B6BAD1CA4083200E4EE89 /* FrendsModels.m in Sources */,
 				39B1D14B1C9A9A5500ACC7D0 /* LoginViewController.m in Sources */,
 				39BA9D4F1CA579A200DD4259 /* FriendPagesTableViewCell.m in Sources */,

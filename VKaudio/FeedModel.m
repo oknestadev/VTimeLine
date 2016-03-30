@@ -31,6 +31,7 @@
         }
         
         NSString* urlString = [responseObject objectForKey:@"photo"];
+        NSLog(@"%@", urlString);
         
         if (urlString) {
             self.photo = [NSURL URLWithString:urlString];

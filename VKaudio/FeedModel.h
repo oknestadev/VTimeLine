@@ -18,6 +18,7 @@ typedef NS_OPTIONS(NSUInteger, FeedModelType) {
 
 @property(strong, nonatomic) NSString* textPost;
 @property(strong, nonatomic) NSURL* photo;
+@property(strong,nonatomic) NSURL* photoAttachments; 
 @property(strong, nonatomic) NSString* owner;
 @property(assign, nonatomic) FeedModelType type;
 

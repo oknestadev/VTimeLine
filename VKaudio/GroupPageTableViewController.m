@@ -9,6 +9,9 @@
 #import "GroupPageTableViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "API.h"
+#import "GroupPageTableViewCell.h"
+#import "GroupsModel.h"
+#import "WallModel.h"
 @interface GroupPageTableViewController ()
 
 @property(strong,nonatomic) NSMutableArray* arrayWithWall;
@@ -17,7 +20,7 @@
 
 @implementation GroupPageTableViewController
 
-static NSInteger PostInRequest = 10;
+static NSInteger PostInRequest = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,6 +82,39 @@ static NSInteger PostInRequest = 10;
     return @"Wall";
     
 }
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return [self.arrayWithWall count] ;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    static NSString* identifier = @"cell";
+    
+    GroupPageTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if (!cell) {
+        cell = [[GroupPageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier  ];
+    }
+    
+    WallModel* wall = [self.arrayWithWall objectAtIndex:indexPath.row];
+    
+    NSLog(@"%@", wall.testWall );
+    
+    
+    
+    cell.labelPageGcell.text = wall.testWall;
+    [cell.photoPageGcell setImageWithURL:wall.photo];
+    
+    
+    
+    return cell;
+    
+}
+
 
 
 

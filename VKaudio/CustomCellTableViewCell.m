@@ -7,6 +7,8 @@
 //
 
 #import "CustomCellTableViewCell.h"
+#import "FriendsPageTableViewController.h"
+
 
 @implementation CustomCellTableViewCell
 
@@ -21,6 +23,15 @@
 }
 
 
+
+
+
+- (IBAction)buttonPageTL:(id)sender {
+    
+    //FriendsPageTableViewController* vc = [[FriendsPageTableViewController alloc] init];
+    
+    
+}
 
 + (CGFloat) heightForText:(NSString*) text {
     

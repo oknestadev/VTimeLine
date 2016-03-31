@@ -1,3 +1,4 @@
+
 //
 //  NewsFeedModel.m
 //  VTimeLine
@@ -32,6 +33,8 @@
     for (NSDictionary* dict in [responseObject objectForKey:@"groups"]) {
         GroupsModel* groupMod = [[GroupsModel alloc]initWithServerResponse:dict];
         
+         NSLog(@" attachments - %@", groupMod);
+        
         [groupDict setObject:groupMod forKey:[dict objectForKey:@"gid"]]; 
     }
     
@@ -42,6 +45,8 @@
     for (NSDictionary* dict in [responseObject objectForKey:@"items"]){
         
         FeedModel* feed = [[FeedModel alloc] initWithServerResponse:dict];
+        
+       
         
         NSLog(@"%@ ", dict);
         
@@ -54,22 +59,35 @@
     NSMutableDictionary* attachmentsDict = [NSMutableDictionary dictionary];
     for (NSDictionary* dict in [responseObject objectForKey:@"items"]) {
         
-        for (NSDictionary* dictAttach in [dict objectForKey:@"attachments"]) {
+     
+        
+        if ([dict objectForKey:@"attachments"]) {
             
+            for (NSDictionary* dictAttachs in [dict objectForKey:@"attachments"]) {
+                
+                AttachmentsModel* attachments = [[AttachmentsModel alloc] initWithServerResponse:dictAttachs];
+                
+               
+                
+                
+                [attachmentsDict setObject:attachments forKey:[dict objectForKey:@"source_id"]];
+                
+                NSLog(@" attachments - %@", attachmentsDict);
+
+            }
+        } else if ([dict objectForKey:@"attachment"]) {
+            for (NSDictionary* dictAttach in [dict objectForKey:@"attachment"]) {
+                AttachmentsModel* attachment = [[AttachmentsModel alloc] initWithServerResponse:dictAttach];
+                
+                [attachmentsDict setObject:attachment forKey:[dict objectForKey:@"source_id"]];
+                
+                NSLog(@"attachment - %@", attachmentsDict);
+            }
             
-            
-            AttachmentsModel* attachments = [[AttachmentsModel alloc] initWithServerResponse:dictAttach];
-            
-            NSLog(@"%@", dictAttach); 
-            
-            //[attachmentsDict setObject:attachments forKey:[dictAttach objectForKey:@"gid"]];
         }
-        
-        
-        NSLog(@"%@",attachmentsDict ); 
-        
- 
+
     }
+
 
     self.attachments = attachmentsDict;
     

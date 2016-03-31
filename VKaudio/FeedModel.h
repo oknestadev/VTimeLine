@@ -20,6 +20,8 @@ typedef NS_OPTIONS(NSUInteger, FeedModelType) {
 @property(strong, nonatomic) NSURL* photo;
 @property(strong,nonatomic) NSURL* photoAttachments; 
 @property(strong, nonatomic) NSString* owner;
+@property(strong, nonatomic) NSString* ownerAttachid;
+
 @property(assign, nonatomic) FeedModelType type;
 
 

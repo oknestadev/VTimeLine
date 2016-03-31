@@ -84,7 +84,7 @@ static NSInteger friendsInRequest = 20;
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
-    return [NSString stringWithFormat:@"Friends %lu",(unsigned long)[self.arrayWithFrend count]];
+    return @"Friends";
     
 }
 

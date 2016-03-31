@@ -194,10 +194,15 @@ static NSInteger PostInRequest = 20;
             
             NSLog(@"photo %@",feed.owner );
             GroupsModel* group = [_groupDict objectForKey:[NSNumber numberWithInteger:[feed.owner integerValue]]];
-           
+            
+            AttachmentsModel* attch = [_arrayWithAttachments objectForKey:feed.ownerAttachid];
+
             NSLog(@"photo %@",feed.owner );
+            
+            
 
             [_cell.photoFeed setImageWithURL:group.groupImageURL];
+            [_cell.photoInCellTL setImageWithURL:attch.photoAttachments];
             _cell.fullNameTLabel.text = group.groupName; 
             _cell.photoFeed.layer.cornerRadius = _cell.photoFeed.frame.size.height/2;
             _cell.photoFeed.clipsToBounds = YES;

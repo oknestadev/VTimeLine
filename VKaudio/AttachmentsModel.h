@@ -11,7 +11,9 @@
 @interface AttachmentsModel : InitModels
 
 @property(strong, nonatomic) NSURL* photoAttachments;
-@property(strong,nonatomic) NSString* oid;
+@property(strong, nonatomic) NSURL* videoPhotoAttachments;
+@property(strong,nonatomic) NSString* ownerPhotoid;
+@property(strong,nonatomic) NSString* ownerVideoid;
 
 
 @end

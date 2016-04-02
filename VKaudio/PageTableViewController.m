@@ -17,9 +17,13 @@
 #import "FriendsTableViewController.h"
 #import "FrendsModels.h"
 #import "GroupsTableViewController.h"
+#import "NewsWallModel.h"
 
 @interface PageTableViewController ()
+
+
 {
+    NewsWallModel* wallModel;
     BOOL reloadFlag;
 }
 @property(strong,nonatomic) PageTableViewCell* cell;
@@ -67,20 +71,28 @@ static NSInteger PostInRequest = 10;
 -(void) getwall {
     
     
-    [[API sharedManager]getWallPost:self.uIDPage offset:[self.arrayWithWall count] count:PostInRequest onSuccess:^(NSArray *post) {
-
-        reloadFlag = post.count<PostInRequest;
-        [self.arrayWithWall addObjectsFromArray:post];
-        
-        
-        
-        [self.tableView reloadData];
-        
-    } onFailure:^(NSError *error) {
-        
-    }];
+    NSLog(@"id %@",self.uIDPage);
+    
+    reloadFlag = self.arrayWithWall.count<PostInRequest;
+    
+   [[API sharedManager] getWallPost:self.uIDPage offset:[self.arrayWithWall count] count:PostInRequest onSuccess:^(NewsWallModel *wall) {
+       wallModel = wall;
+       [self.arrayWithWall addObjectsFromArray:wallModel.items];
+       
+       [self.tableView reloadData];
+       
+       
+       
+   } onFailure:^(NSError *error) {
+       
+   }];
     
 }
+
+
+        
+        
+    
 
 -(void) getUser {
     
@@ -121,8 +133,10 @@ static NSInteger PostInRequest = 10;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+  
 
-    return [self.arrayWithWall count] ;
+    return [self.arrayWithWall count];
 }
 
 
@@ -137,25 +151,21 @@ static NSInteger PostInRequest = 10;
     if (!_cell) {
         _cell = [[PageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier  ];
     }
-    
-   
 
+    WallModel* wall = [self.arrayWithWall objectAtIndex:indexPath.row];
+
+    self.cell.labelCell.text = wall.textWall;
+    [self.cell.imagePhotoCell setImageWithURL:self.user.avatarPhoto];
+    self.cell.imagePhotoCell.layer.cornerRadius = _cell.imagePhotoCell.frame.size.height/2;
+    self.cell.imagePhotoCell.clipsToBounds = YES;
+    self.cell.imagePhotoCell.layer.borderColor = [UIColor blackColor].CGColor;
+    [self.cell.imagePhotoCell.layer setBorderWidth:0.5f];
     
     if (indexPath.row == [self.arrayWithWall count] - 1 && !reloadFlag) {
         [self getwall];
         
     }
 
- 
-    
-    WallModel* wall = [self.arrayWithWall objectAtIndex:indexPath.row];
-
-    self.cell.labelCell.text = wall.testWall;
-    [self.cell.imagePhotoCell setImageWithURL:self.user.avatarPhoto];
-    self.cell.imagePhotoCell.layer.cornerRadius = _cell.imagePhotoCell.frame.size.height/2;
-    self.cell.imagePhotoCell.clipsToBounds = YES;
-    self.cell.imagePhotoCell.layer.borderColor = [UIColor blackColor].CGColor;
-    [self.cell.imagePhotoCell.layer setBorderWidth:0.5f];
 
     
     

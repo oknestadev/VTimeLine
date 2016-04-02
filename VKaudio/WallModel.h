@@ -11,7 +11,7 @@
 
 @interface WallModel : InitModels
 
-@property(strong, nonatomic) NSString* testWall;
+@property(strong, nonatomic) NSString* textWall;
 
 @property(strong, nonatomic) NSURL* photo; 
 

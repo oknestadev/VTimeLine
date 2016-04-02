@@ -21,10 +21,12 @@
 #import "NewsFeedModel.h"
 #import "FriendPagesTableViewCell.h"
 #import "FriendsTableViewController.h"
+#import "NewsWallModel.h"
 
 
 @interface FriendsPageTableViewController ()
 {
+    NewsWallModel *wallModel;
     BOOL reloadFlag;
 }
 @property(strong,nonatomic) NSMutableArray* arrayWithUser;
@@ -93,25 +95,26 @@ static NSInteger PostInRequest = 20;
 }
 
 -(void) getwall {
+        
+        
+        [[API sharedManager] getWallPost:self.uIDPage offset:[self.arrayWithUserWall count] count:PostInRequest onSuccess:^(NewsWallModel *wall) {
+            wallModel = wall;
+            
+            
+            [self.arrayWithUserWall addObjectsFromArray:wallModel.items];
+            
+            reloadFlag = self.arrayWithUserWall.count<PostInRequest;
+            
+            [self.tableView reloadData];
+            
+            
+            
+        } onFailure:^(NSError *error) {
+            
+        }];
+        
+    }
     
-    NSLog(@"%@", self.uIDPage); 
-    
-    [[API sharedManager]getWallPost: self.uIDPage  offset:[self.arrayWithUserWall count] count:PostInRequest onSuccess:^(NSArray *post) {
-        
-        reloadFlag = post.count<PostInRequest;
-        
-        
-        [self.arrayWithUserWall addObjectsFromArray:post];
-        
-        
-        
-        [self.tableView reloadData];
-        
-    } onFailure:^(NSError *error) {
-        
-    }];
-    
-}
 
 
 
@@ -167,25 +170,27 @@ static NSInteger PostInRequest = 20;
     }
     
     
-    if (indexPath.row == [self.arrayWithUserWall count] - 1 && !reloadFlag) {
-        
-        [self getwall];
-        
-        
-    }
+   
     
     WallModel* wall = [self.arrayWithUserWall objectAtIndex:indexPath.row];
     UserModel* user = [self.arrayWithUser objectAtIndex:0];
     
-    NSLog(@"%@ ", wall.testWall );
+    NSLog(@"%@ ", wall.textWall );
     
-    self.cell.textPost.text = wall.testWall;
+    self.cell.textPost.text = wall.textWall;
     [self.cell.photoUserWall setImageWithURL:user.photo];
     
     self.cell.photoUserWall.layer.cornerRadius = _cell.photoUserWall.frame.size.height/2;
     self.cell.photoUserWall.clipsToBounds = YES;
     self.cell.photoUserWall.layer.borderColor = [UIColor blackColor].CGColor;
     [self.cell.photoUserWall.layer setBorderWidth:0.5f];
+    
+    if (indexPath.row == [self.arrayWithUserWall count] - 1 && !reloadFlag) {
+        
+        [self getwall];
+        
+        
+    }
     
     
     

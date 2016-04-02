@@ -10,6 +10,7 @@
 #import "VKSdk.h"
 #import "UserModel.h"
 #import "NewsFeedModel.h"
+#import "NewsWallModel.h"
 
 @interface API : NSObject
 
@@ -26,11 +27,11 @@
         onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
 
--(void)  getWallPost:(NSString*)user offset:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NSArray* post)) success  onFailure:(void(^)(NSError*error)) failure ;
+-(void)  getWallPost:(NSString*)user offset:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NewsWallModel* wall)) success  onFailure:(void(^)(NSError*error)) failure;
 
 -(void)  getAudio:(NSString*)user offset:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NSArray* post)) success  onFailure:(void(^)(NSError*error)) failure;
 
--(void)  getFeed:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NewsFeedModel* feed))success  onFailure:(void(^)(NSError*error)) failure;
+-(void)  getFeed:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NewsFeedModel* wall))success  onFailure:(void(^)(NSError*error)) failure;
 
 
 - (void) getFriendsFromUSer:(NSString*)user offset:(NSInteger) offset

@@ -60,7 +60,7 @@
 
 @implementation TimelineTableViewController
 
-static NSInteger PostInRequest = 20;
+static NSInteger PostInRequest = 10;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -187,6 +187,7 @@ static NSInteger PostInRequest = 20;
             [_cell.photoFeed setImageWithURL:user.photo];
             NSLog(@"%@ %@", user.name, user.lastName); 
             _cell.fullNameTLabel.text = [NSString stringWithFormat:@"%@ %@", user.name, user.lastName];
+            _cell.wallLabel.text = feed.textPost;
         }
             break;
         case FeedModelTypeGroupe:
@@ -208,6 +209,7 @@ static NSInteger PostInRequest = 20;
             _cell.photoFeed.clipsToBounds = YES;
             _cell.photoFeed.layer.borderColor = [UIColor blackColor].CGColor;
             [_cell.photoFeed.layer setBorderWidth:0.5f];
+            _cell.wallLabel.text = feed.textPost;
            
             
             
@@ -217,10 +219,10 @@ static NSInteger PostInRequest = 20;
             break;
     }
     
-  NSLog(@"Feed %@", feed.textPost);
-    _cell.wallLabel.text = feed.textPost;
+    
+    //_cell.wallLabel.text = feed.textPost;
     [_cell setIndexPath:indexPath];
-    NSLog(@"setIndexPath %@",indexPath);
+
     
     
     if (indexPath.row == [self.arrayWithFeed count] - 1) {

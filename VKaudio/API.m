@@ -19,6 +19,8 @@
 
 
 
+
+
 @interface API ()
 
 @property(strong, nonatomic) AFHTTPSessionManager* requestOperation;
@@ -118,7 +120,7 @@
 }
 
 
--(void)  getWallPost:(NSString*)user offset:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NSArray* post)) success  onFailure:(void(^)(NSError*error)) failure {
+-(void) getWallPost:(NSString*)user offset:(NSInteger)offset count:(NSInteger)count onSuccess:(void(^)(NewsWallModel* wall))success  onFailure:(void(^)(NSError*error)) failure {
     
     
     NSString* userID = user?user:self.accessToken.userId;
@@ -134,36 +136,13 @@
     
     [self.requestOperation GET:@"wall.get?v=5.50" parameters:parametrs progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"JasonWall %@", responseObject);
-        
-        
-        
-        NSArray* arrayDict = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
-        
-        
-       
-      
-        NSLog(@"walll %@", arrayDict);
-        
-        NSMutableArray* array = [NSMutableArray array];
-        
+        NSLog(@"JAson %@", responseObject);
 
-        
-        for (NSDictionary* dict in arrayDict) {
-            
-            NSLog(@"%@ walll", dict);
-            
-            
-              WallModel* post = [[WallModel alloc] initWithServerResponse:dict];
-            
-            NSLog(@"%@ walll PHOTO", post.photo);
-            
-            
-            [array addObject:post];
-        }
+        NewsWallModel* nw = [[NewsWallModel alloc] initWithServerResponse:responseObject];
+       
         
         if (success) {
-            success(array); 
+            success(nw);
         }
         
         

@@ -12,7 +12,11 @@
 #import "GroupPageTableViewCell.h"
 #import "GroupsModel.h"
 #import "WallModel.h"
+#import "NewsWallModel.h"
 @interface GroupPageTableViewController ()
+{
+    NewsWallModel* wallModel;
+}
 
 @property(strong,nonatomic) NSMutableArray* arrayWithWall;
 
@@ -53,27 +57,32 @@ static NSInteger PostInRequest = 20;
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void) getwall {
     
     NSInteger temp_id = [_group.groupID  integerValue];
     
     NSLog(@"%@", [NSString stringWithFormat:@"%li",(temp_id*-1)]);
+    
+    
+    [[API sharedManager] getWallPost:[NSString stringWithFormat:@"%li",(temp_id*-1)]offset:[self.arrayWithWall count] count:PostInRequest onSuccess:^(NewsWallModel *wall) {
+        wallModel = wall;
+        
+        
+        NSLog(@"%@", wall);
+        
+        [self.arrayWithWall addObjectsFromArray:wall.items];
+        
+        
 
-    [[API sharedManager]getWallPost: [NSString stringWithFormat:@"%li",(temp_id*-1)] offset:[self.arrayWithWall count] count:PostInRequest onSuccess:^(NSArray *post) {
-        
-        [self.arrayWithWall addObjectsFromArray:post];
-        
-        NSLog(@"%lu count ",(unsigned long)[self.arrayWithWall count] );
-        
-        
-        
-        [self.tableView reloadData];
         
     } onFailure:^(NSError *error) {
         
     }];
     
 }
+
+
 
 #pragma mark - Table view data source
 
@@ -102,11 +111,11 @@ static NSInteger PostInRequest = 20;
     
     WallModel* wall = [self.arrayWithWall objectAtIndex:indexPath.row];
     
-    NSLog(@"%@", wall.testWall );
+    NSLog(@"%@", wall.textWall );
     
     
     
-    cell.labelPageGcell.text = wall.testWall;
+    cell.labelPageGcell.text = wall.textWall;
     [cell.photoPageGcell setImageWithURL:wall.photo];
     
     

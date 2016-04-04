@@ -10,6 +10,8 @@
 
 @interface FullTextTableViewController : UITableViewController
 
-@property(strong,nonatomic) NSString* text; 
+@property(strong,nonatomic) NSString* text;
+@property(strong,nonatomic) NSURL* photo; 
+
 
 @end

@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *fullTextLabel;
 
 @property(weak,nonatomic) NSIndexPath* indexPath;
+@property (weak, nonatomic) IBOutlet UIImageView *fullImageCell;
 
 + (CGFloat) heightForText:(NSString*) text;
 

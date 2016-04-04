@@ -176,33 +176,41 @@
         <scene sceneID="kq6-HD-Wsc">
             <objects>
                 <tableViewController id="nFC-IY-Oez" customClass="FullTextTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" id="KlH-53-19F">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="334" sectionHeaderHeight="28" sectionFooterHeight="28" id="KlH-53-19F">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="74" id="L8z-DO-qMI" customClass="FullTextCellTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="320" height="74"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell0" rowHeight="500" id="L8z-DO-qMI" customClass="FullTextCellTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L8z-DO-qMI" id="aC1-bo-ZrN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="9999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="3Vw-dT-Lyz">
-                                            <rect key="frame" x="15" y="10" width="291" height="55"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="140"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wTA-Yn-wTg">
+                                            <rect key="frame" x="8" y="156" width="304" height="335"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="3Vw-dT-Lyz" firstAttribute="top" secondItem="aC1-bo-ZrN" secondAttribute="topMargin" constant="2" id="6LD-ra-htP"/>
-                                        <constraint firstItem="3Vw-dT-Lyz" firstAttribute="leading" secondItem="aC1-bo-ZrN" secondAttribute="leadingMargin" constant="7" id="AJO-rB-zbu"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="3Vw-dT-Lyz" secondAttribute="trailing" constant="6" id="BqY-pT-XnY"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="3Vw-dT-Lyz" secondAttribute="bottom" id="UTb-ea-cZU"/>
+                                        <constraint firstAttribute="trailing" secondItem="wTA-Yn-wTg" secondAttribute="trailing" constant="8" id="9wD-dM-0fv"/>
+                                        <constraint firstAttribute="bottom" secondItem="wTA-Yn-wTg" secondAttribute="bottom" constant="8" id="9yR-A9-SB4"/>
+                                        <constraint firstItem="wTA-Yn-wTg" firstAttribute="top" secondItem="3Vw-dT-Lyz" secondAttribute="bottom" constant="8" id="UBE-AE-Xte"/>
+                                        <constraint firstAttribute="bottom" secondItem="3Vw-dT-Lyz" secondAttribute="bottom" constant="351" id="Wdd-Gi-hlM"/>
+                                        <constraint firstItem="3Vw-dT-Lyz" firstAttribute="top" secondItem="aC1-bo-ZrN" secondAttribute="top" constant="8" id="Xyg-Lh-btS"/>
+                                        <constraint firstItem="wTA-Yn-wTg" firstAttribute="leading" secondItem="aC1-bo-ZrN" secondAttribute="leading" constant="8" id="a54-Q4-88o"/>
+                                        <constraint firstItem="3Vw-dT-Lyz" firstAttribute="leading" secondItem="aC1-bo-ZrN" secondAttribute="leading" constant="8" id="deC-Nj-TkA"/>
+                                        <constraint firstAttribute="trailing" secondItem="3Vw-dT-Lyz" secondAttribute="trailing" constant="8" id="pSg-eA-rAj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="fullImageCell" destination="wTA-Yn-wTg" id="iUq-ai-Mpg"/>
                                     <outlet property="fullTextLabel" destination="3Vw-dT-Lyz" id="Qx5-qP-fvl"/>
                                 </connections>
                             </tableViewCell>

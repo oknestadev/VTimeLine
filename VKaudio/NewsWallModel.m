@@ -35,8 +35,12 @@
     
     NSMutableDictionary* dichAttachments = [NSMutableDictionary dictionary];
     for (NSDictionary* dict in [[responseObject objectForKey:@"response"]objectForKey:@"items"]) {
+        
         for (NSDictionary* dictAtach in [dict objectForKey:@"attachments"]) {
-            WallModel* feedAttachments = [[WallModel alloc] initWithServerResponse:dictAtach];
+            
+            WallModel* wallAttachments = [[WallModel alloc] initWithServerResponse:dictAtach];
+            
+            [dichAttachments setObject:wallAttachments forKey:@"owner_id"];
             
             
         }

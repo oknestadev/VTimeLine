@@ -180,6 +180,8 @@ static NSInteger PostInRequest = 20;
     self.cell.textPost.text = wall.textWall;
     [self.cell.photoUserWall setImageWithURL:user.photo];
     
+   
+    
     self.cell.photoUserWall.layer.cornerRadius = _cell.photoUserWall.frame.size.height/2;
     self.cell.photoUserWall.clipsToBounds = YES;
     self.cell.photoUserWall.layer.borderColor = [UIColor blackColor].CGColor;

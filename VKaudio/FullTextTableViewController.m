@@ -8,6 +8,8 @@
 
 #import "FullTextTableViewController.h"
 #import "FullTextCellTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
+
 
 @interface FullTextTableViewController ()
 
@@ -21,6 +23,8 @@
     [super viewDidLoad];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    NSLog(@"%@ %@", self.text, self.photo); 
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -40,16 +44,25 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 
- 
-    UIFont *cellFont = [UIFont fontWithName:@"Helvetica Neue" size:17.0f];
-    
-    CGSize constraintSize = CGSizeMake(320.0f, CGFLOAT_MAX);
-    
-    CGSize labelSize = [_cell.fullTextLabel.text sizeWithFont:cellFont
-                            constrainedToSize:constraintSize
-                                lineBreakMode:NSLineBreakByWordWrapping];
-    
-    return labelSize.height + 70.0f;
+    if (indexPath.row <100) {
+        
+        return 500.f;
+    } else {
+        
+        UIFont *cellFont = [UIFont fontWithName:@"Helvetica Neue" size:17.0f];
+        
+        CGSize constraintSize = CGSizeMake(320.0f, CGFLOAT_MAX);
+        
+        CGSize labelSize = [_cell.fullTextLabel.text sizeWithFont:cellFont
+                                                constrainedToSize:constraintSize
+                                                    lineBreakMode:NSLineBreakByWordWrapping];
+        
+        return labelSize.height + 70.0f;
+        
+        
+    }
+
+
 
     
 }
@@ -68,8 +81,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+
+   
     
-    static NSString* identifier = @"cell";
+    
+    static NSString* identifier = @"cell0";
     
      _cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
@@ -78,6 +94,7 @@
     }
     
     _cell.fullTextLabel.text = self.text;
+    [_cell.fullImageCell setImageWithURL:self.photo];
    
     
     

@@ -29,6 +29,7 @@
              NSLog(@" %@ " ,self.textWall);
         
         } else if ([responseObject objectForKey:@"photo"] ) {
+        
             
             NSString* urlString = [[responseObject objectForKey:@"photo"] objectForKey:@"photo_130"];
             
@@ -37,23 +38,20 @@
             if (urlString) {
                 self.photo = [NSURL URLWithString:urlString];
 
-            } else if ([responseObject objectForKey:@"audio"] ){
+            } else if ([responseObject objectForKey:@"audio"]) {
                 
-                NSString* title = [[responseObject objectForKey:@"audio"] objectForKey:@"title"];
-                NSLog(@"%@", title); 
+               self.titelAudioWall = [[responseObject objectForKey:@"audio"] objectForKey:@"title"];
+                NSLog(@"%@",  self.titelAudioWall); 
                 
             }
         
+        
+
+        
         }
-        
-        
-        
-        
-        
 
-
-        
            }
+    
     return self;
     
     

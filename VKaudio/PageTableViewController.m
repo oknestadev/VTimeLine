@@ -71,13 +71,15 @@ static NSInteger PostInRequest = 10;
 -(void) getwall {
     
     
-    NSLog(@"id %@",self.uIDPage);
+   // NSLog(@"id %@",self.uIDPage);
     
-    reloadFlag = self.arrayWithWall.count<PostInRequest;
+    
     
    [[API sharedManager] getWallPost:self.uIDPage offset:[self.arrayWithWall count] count:PostInRequest onSuccess:^(NewsWallModel *wall) {
        wallModel = wall;
        [self.arrayWithWall addObjectsFromArray:wallModel.items];
+       
+       reloadFlag = self.arrayWithWall.count<PostInRequest;
        
        [self.tableView reloadData];
        

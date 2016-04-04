@@ -139,6 +139,11 @@ static NSInteger PostInRequest = 10;
         NSLog(@"arrayitchObject %@",self.arrayWithAttachments);
         
         [self.tableView reloadData];
+        
+        //[self.tableView beginUpdates];
+        //[self.tableView insertRowsAtIndexPaths:newPaths withRowAnimation:UITableViewRowAnimationTop];
+        //[self.tableView endUpdates];
+
    
         
     } onFailure:^(NSError *error) {
@@ -244,12 +249,43 @@ static NSInteger PostInRequest = 10;
     
     
     if ([segue.identifier isEqualToString:@"FullText"])
+        
+        
     {
         
         _cell = (CustomCellTableViewCell*)sender;
         FeedModel* feed = [self.arrayWithFeed objectAtIndex:_cell.indexPath.row];
-        ((FullTextTableViewController*)[segue destinationViewController]).text = feed.textPost;
+        switch (feed.type) {
+            case FeedModelTypePeople:
+            {
+                
+                ((FullTextTableViewController*)[segue destinationViewController]).text = feed.textPost;
+                ((FullTextTableViewController*)[segue destinationViewController]).photo = feed.photoAttachments;
+                break;
+            case FeedModelTypeGroupe:
+            {
+            
+                AttachmentsModel* attch = [_arrayWithAttachments objectForKey:feed.ownerAttachid];
+                
+                ((FullTextTableViewController*)[segue destinationViewController]).text = feed.textPost;
+                ((FullTextTableViewController*)[segue destinationViewController]).photo = attch.photoAttachments;
 
+                
+                
+            }
+                break;
+            default:
+                break;
+            }
+                
+
+        
+        
+//        ((FullTextTableViewController*)[segue destinationViewController]).text = feed.textPost;
+//        ((FullTextTableViewController*)[segue destinationViewController]).photo = feed.photoAttachments;
+
+    }
+        
     }
     
     if ([segue.identifier isEqualToString:@"MyPage"]) {

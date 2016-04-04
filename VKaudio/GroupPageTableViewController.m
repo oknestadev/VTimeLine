@@ -16,6 +16,7 @@
 @interface GroupPageTableViewController ()
 {
     NewsWallModel* wallModel;
+    BOOL reloadFlag;
 }
 
 @property(strong,nonatomic) NSMutableArray* arrayWithWall;
@@ -60,6 +61,8 @@ static NSInteger PostInRequest = 20;
 
 -(void) getwall {
     
+  
+    
     NSInteger temp_id = [_group.groupID  integerValue];
     
     NSLog(@"%@", [NSString stringWithFormat:@"%li",(temp_id*-1)]);
@@ -69,9 +72,17 @@ static NSInteger PostInRequest = 20;
         wallModel = wall;
         
         
-        NSLog(@"%@", wall);
+        //NSLog(@"%@", wall);
         
         [self.arrayWithWall addObjectsFromArray:wall.items];
+        
+        
+        
+         reloadFlag = self.arrayWithWall.count<PostInRequest;
+        
+        //NSLog(@"%@", self.arrayWithWall );
+        
+          [self.tableView reloadData];
         
         
 
@@ -117,6 +128,12 @@ static NSInteger PostInRequest = 20;
     
     cell.labelPageGcell.text = wall.textWall;
     [cell.photoPageGcell setImageWithURL:wall.photo];
+    
+    if (indexPath.row == [self.arrayWithWall count] - 1 && !reloadFlag) {
+        [self getwall];
+        
+    }
+
     
     
     

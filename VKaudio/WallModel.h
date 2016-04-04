@@ -12,7 +12,7 @@
 @interface WallModel : InitModels
 
 @property(strong, nonatomic) NSString* textWall;
-
+@property(strong, nonatomic) NSString* titelAudioWall;
 @property(strong, nonatomic) NSURL* photo; 
 
 @end
